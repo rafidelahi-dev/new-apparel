@@ -37,7 +37,37 @@ import {
 } from '@chakra-ui/react'
 import { ChevronDownIcon, HamburgerIcon } from '@chakra-ui/icons'
 import './App.css'
+import ProductCard from './ProductCard'
 
+const products = [
+  {
+    name: "ComfortFit Men's Casual Pants",
+    imageSrc:
+      'https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBhbnRzfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60',
+    description:
+      "Introducing our ComfortFit Men's Casual Pants, designed to elevate your everyday style with unmatched comfort and versatility. Whether you're heading to the office, a weekend  brunch, or a casual night out, these pants are your perfect  companion.",
+  },
+  {
+    name: "ActiveFlex Men's Half Pants",
+    imageSrc:
+      'https://media.istockphoto.com/id/1163910106/photo/gray-sport-mens-shorts-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=rPLRO-KdBvaN8jXlgYNRyX2GQcQkrXs4W1AfDuTBfIY=',
+    description:
+      "Introducing our ActiveFlex Men's Half Pants, the perfect choice for those seeking style, comfort, and freedom of movement during warmer days. Whether you're hitting the gym, going for a run, or simply enjoying outdoor activities, these half pants are designed to keep you cool and comfortable.",
+  },
+  {
+    name: "UrbanFit Men's Jogger Pants",
+    imageSrc:
+      'https://media.istockphoto.com/id/1322763090/photo/blank-joggers-mockup-front-and-side-views.jpg?s=612x612&w=0&k=20&c=blJ5fXFmZGp9CQ1OK5tBCMdi60hLlrqcM295W8XNxLg=',
+    description:
+      "Discover ultimate comfort and style with our UrbanFit Men's Jogger Pants. Designed to provide a perfect blend of relaxation and fashion, these joggers are the ideal choice for staying comfortable during casual outings or lounging at home.",
+  },
+  {
+    name: "RuggedFlex Men's Cargo Pants",
+    imageSrc:
+      'https://images.unsplash.com/photo-1584302052177-2e90841dad6a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FyZ28lMjBwYW50c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60',
+    description: "Introducing our RuggedFlex Men's Cargo Pants, the perfect blend of functionality and style for your active lifestyle. These cargo pants are designed to withstand the demands of both outdoor adventures and everyday wear, while keeping you well-prepared and on-trend.",
+  },
+]
 
 function App() {
   const [count, setCount] = useState(0)
@@ -209,8 +239,12 @@ function App() {
           padding='4'
           gap={2}
         >
+
+          {products.map((product) => {
+            return  <ProductCard name={product.name} imageSrc={product.imageSrc} description={product.description}/>
+          })}
           {/* Your content goes here */}
-          <Card maxW='sm'>
+          {/* <Card maxW='sm'>
             <CardBody>
               <Image
                 src='https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBhbnRzfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60'
@@ -437,7 +471,7 @@ function App() {
                 </Popover>
               </Stack>
             </CardFooter>
-          </Card>
+          </Card> */}
         </SimpleGrid>
       </Center>
 

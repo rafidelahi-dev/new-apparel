@@ -1,8 +1,26 @@
-import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Image, Popover, PopoverBody, PopoverCloseButton, PopoverContent, PopoverTrigger, Stack, Text, useToast } from '@chakra-ui/react'
+import {
+  Button,
+  ButtonGroup,
+  Card,
+  CardBody,
+  CardFooter,
+  Divider,
+  Heading,
+  Image,
+  Popover,
+  PopoverBody,
+  PopoverCloseButton,
+  PopoverContent,
+  PopoverTrigger,
+  Stack,
+  Text,
+  useToast,
+} from '@chakra-ui/react'
+import { CheckIcon } from '@chakra-ui/icons'
 import axios from 'axios'
 import React, { useState } from 'react'
 
-const ProductCard = ({name, imageSrc, description}) => {
+const ProductCard = ({name, imageSrc, description, price}) => {
     const [isAddedToCart, setIsAddedToCart] = useState(false)
     const toast = useToast()
 
@@ -43,7 +61,7 @@ const ProductCard = ({name, imageSrc, description}) => {
           <Heading size='md'> {name} </Heading>
           <Text>{description}</Text>
           <Text color='blue.600' fontsize='2xl'>
-            $450
+            {price}
           </Text>
         </Stack>
       </CardBody>
@@ -61,7 +79,13 @@ const ProductCard = ({name, imageSrc, description}) => {
                 addToCart('Hello')
               }}
             >
-              {isAddedToCart ? `Added` : `Add to Cart`}
+              {isAddedToCart ? (
+                <>
+                  Added <CheckIcon />
+                </>
+              ) : (
+                'Add to Cart'
+              )}
             </Button>
           </ButtonGroup>
           <Popover isLazy>
